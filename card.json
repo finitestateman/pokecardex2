@@ -1,0 +1,43 @@
+{
+    "name": "Bulbasaur",
+    "expansion": "Genet1ic Apex",
+    "cover": "Mewtwo",
+    "illustrator": "Narumi Sato",
+    "series": "A",
+    "rarity": "C",
+    "isEx": false,
+    "weakness": {
+        "type": "Fire",
+        "calc_method": "+",
+        "value": 2
+    },
+
+
+    "pokemon": {
+        "NO": 1,
+        "identifier": "Bulbasaur",
+        "classification": "Seed Pokémon",
+        "height": 2.4,
+        "weight": 15.2,
+        "description": "There is a seed on its back right from the day this Pokémon is born. The seed slowly grows larger."
+    },
+
+    "moves": [
+        {
+            "id": 1,
+            "identifier": "Vine Whip",
+            "damage": 40,
+            "req_energy": {
+                "Grass": 1,
+                "Colorless": 1
+            }
+        }
+    ],
+    "retreat": {
+        "req_energy": {
+            "Colorless": 1
+        }
+    },
+
+    "related_cards": []
+}
