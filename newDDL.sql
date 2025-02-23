@@ -102,6 +102,7 @@ create table pokemon_card
     description_id integer references description (id)
 );
 
+-- card_type을 두는 걸로 변경하기
 create table meta_card_info
 (
     id integer generated always as identity primary key,
@@ -121,6 +122,7 @@ create table booster_pack_pokemon_card
     unique (booster_pack_id, card_no)
 );
 
+-- card_no 추가
 create table trainer_card
 (
     id             uuid default gen_random_uuid() primary key,
@@ -138,6 +140,7 @@ create table fossil_card
     hp              integer not null
 );
 
+-- card_type을 두는 걸로 변경하기
 create table promo_card
 (
     id              integer generated always as identity primary key,
