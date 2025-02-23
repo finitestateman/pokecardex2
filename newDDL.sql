@@ -80,7 +80,7 @@ create table pokemon_card (
     hp integer not null, -- 120
     type tcg_type not null, -- 'lightning'::tcg_type
     attack1 integer references attack(id) not null, -- n:1 -> 여러 포켓몬 카드가 하나의 첫번째 공격 기술을 참조함
-    attack2 integer, -- n:1 -> 여러 포켓몬 카드가 하나의 두번째 공격 기술을 참조할 수 있음(nullable)
+    attack2 integer references attack(id), -- n:1 -> 여러 포켓몬 카드가 하나의 두번째 공격 기술을 참조할 수 있음(nullable)
     rarity rarity not null,
     retreat tcg_type[] not null, -- ['colorless'::tcg_type, 'colorless'::tcg_type]
     weakness tcg_type not null,
