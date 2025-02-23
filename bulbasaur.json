@@ -1,0 +1,48 @@
+[
+    {
+        "stage": 0,
+        "cardName": "Bulbasaur",
+        "HP": 70,
+        "cardType": "grass",
+        "pokemon": {
+            "id": "59523284-d310-4b54-b303-c5e1a9a54abb",
+            "natlNo": "0001",
+            "species": "Seed Pokémon",
+            "height": 7.0,
+            "weight": 6.9
+        },
+        "energies": [
+            "grass",
+            "colorless"
+        ],
+        "attackName": "Vine Whip",
+        "attackDescription": null,
+        "attackDamage": 40,
+        "weakness": "fire + 20",
+        "retreatCost": "colorless",
+        "content": "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
+        "illustrator": "Narumi Sato",
+        "rarity": "d1"
+    },
+        {
+          "cardName": "Bulbasaur",
+          "rarity": "d1",
+          "dexNo": 1,
+          "species": "Seed Pokémon",
+          "height": 7,
+          "weight": 6.9,
+          "content": "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
+          "expansionTitle": "Genetic Apex",
+          "expansionSeries": "A1",
+          "illustratorName": "Narumi Sato",
+          "attackEnergies": ["grass", "colorless"],
+          "attackName": "Vine Whip",
+          "attackDamage": 40,
+          "stage": 0,
+          "cardType": "grass",
+          "hp": 70,
+          "weakness": "fire",
+          "retreat": ["colorless"],
+          "expansionSeries2": "A1"
+        }
+]
