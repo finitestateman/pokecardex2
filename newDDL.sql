@@ -122,6 +122,7 @@ create table booster_pack_pokemon_card
     unique (booster_pack_id, card_no)
 );
 
+-- ex추가?
 create table trainer_card
 (
     id             uuid default gen_random_uuid() primary key,
@@ -162,7 +163,8 @@ create table promo_card
 create table deck
 (
     id              bigint generated always as identity primary key,
-    pokemon
+    pokemon_card_id -- 동일한 포켓몬인지 구분하는 방법 고민(피카츄가 2마리여도 ex면 추가가 가능하다)
+    trainer_card_id -- trainer는 ex이더라도 동일 개체로 취급한다
 );
 
 create table user
