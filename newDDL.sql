@@ -122,12 +122,12 @@ create table booster_pack_pokemon_card
     unique (booster_pack_id, card_no)
 );
 
--- card_no 추가
 create table trainer_card
 (
     id             uuid default gen_random_uuid() primary key,
     kind           trainer        not null,
     name           varchar unique not null,
+    card_no        integer unique not null,
     description    text           not null,
     rarity         rarity,
     footnote       text,
@@ -140,6 +140,15 @@ create table fossil_card
     hp              integer not null
 );
 
+create table booster_pack_trainer_card
+(
+    booster_pack_id integer references booster_pack (id)      not null,
+    trainer_card_id uuid references trainer_card (id)         not null,
+    card_no         integer references trainer_card (card_no) not null,
+    primary key (booster_pack_id, trainer_card_id),
+    unique (booster_pack_id, card_no)
+);
+
 -- card_type을 두는 걸로 변경하기
 create table promo_card
 (
@@ -148,6 +157,22 @@ create table promo_card
     trainer_card_id uuid references trainer_card (id) on delete cascade,
     how_to_obtain   text,
     unique (pokemon_card_id, trainer_card_id)
+);
+
+create table deck
+(
+    id              bigint generated always as identity primary key,
+    pokemon
+);
+
+create table user
+(
+
+);
+
+create table join_user_deck
+(
+
 );
 
 
