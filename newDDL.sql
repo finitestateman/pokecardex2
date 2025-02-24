@@ -141,7 +141,7 @@ create table meta_card_info
 
 create table promo_card
 (
-    card_id       integer references card (card_id) on delete cascade primary key,
+    card_id       integer references card (id) on delete cascade primary key,
     how_to_obtain text
 );
 
