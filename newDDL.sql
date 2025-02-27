@@ -44,7 +44,7 @@ create table description
 (
     id         integer generated always as identity primary key,
     content    text    not null,
-    pokemon_id integer not null unique references pokemon (id) on delete set null on update cascade
+    pokemon_id integer unique references pokemon (id) on delete set null on update cascade
 );
 
 create table illustrator
@@ -99,6 +99,7 @@ create table card
     rarity         rarity         not null,
     point          integer,
     offering_rate  numeric(6, 3),
+    img_url        varchar,
     illustrator_id integer references illustrator (id)
 );
 
@@ -174,16 +175,29 @@ create table cards_join_booster_packs
 create table deck
 (
     id              integer generated always as identity primary key,
+    name            varchar not null, -- 22자 제한(not unique in the game)
     deck_box        energy,
-    energies        energy[] not null,
+    energy1         energy not null,
+    energy2         energy,
     highlight_cards integer[],                                 -- references card (id[])
-    pokemon_card_id integer references pokemon_card (card_id), -- 동일한 포켓몬인지 구분하는 방법 고민(피카츄가 2마리여도 ex면 추가가 가능하다)
-    trainer_card_id integer references trainer_card (card_id)  -- trainer는 이름이 같으면 2개 중복을 비허용
+    user_id            integer references "user" (id) on delete cascade not null,
+--     pokemon_card_id integer references pokemon_card (card_id), -- 동일한 포켓몬인지 구분하는 방법 고민(피카츄가 2마리여도 ex면 추가가 가능하다)
+--     trainer_card_id integer references trainer_card (card_id)  -- trainer는 이름이 같으면 2개 중복을 비허용
 );
 
--- create table user
--- (
--- );
+create table deck_cards
+(
+    deck_id integer references deck (id) on delete cascade not null,
+    card_id integer references card (id) on delete set null
+    -- quantity 컬럼을 두면 쿼리가 복잡해지고, 안 두면 제약조건을 걸 수가 없다(insert할 때마다 개수검사)
+    -- 그냥 application 레벨에서 개수 검사하는걸로
+);
+
+create table user
+(
+    id              integer generated always as identity primary key
+    -- not yet implemented
+);
 --
 -- create table users_join_decks
 -- (
